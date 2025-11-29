@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Edebiyat Testi - Atatürk & Dil Bilgisi</title>
+<style>
+    body { font-family: Arial; background:#ffffff; padding:20px; }
+    h1 { text-align:center; margin-bottom:30px; }
+    .soru {
+        background:#f8f8f8;
+        padding:20px;
+        border-radius:12px;
+        border:1px solid #ddd;
+        margin-bottom:25px;
+    }
+    input[type=text] {
+        width:90%;
+        padding:8px;
+        margin-top:8px;
+        border-radius:6px;
+        border:1px solid #aaa;
+    }
+    .btn {
+        display:block;
+        width:250px;
+        margin:30px auto;
+        padding:12px;
+        background:black;
+        color:white;
+        border-radius:12px;
+        border:none;
+        font-size:18px;
+        cursor:pointer;
+    }
+    #sonuc {
+        text-align:center;
+        font-size:24px;
+        margin-top:25px;
+        font-weight:bold;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Atatürk - Edebiyat - Dil Bilgisi Testi</h1>
+
+<div class="soru">
+<b>1) Atatürk’ün en önemli eserlerinden biri hangisidir?</b><br>
+<input type="text" id="s1" placeholder="Cevap">
+</div>
+
+<div class="soru">
+<b>2) Eşleştirme</b><br><br>
+1- Tiyatro → <input type="text" id="s2" placeholder="a/b"><br><br>
+2- Şiir → <input type="text" id="s3" placeholder="a/b"><br><br>
+a) Sahne sanatı<br>
+b) Nazım türü
+</div>
+
+<div class="soru">
+<b>3) Boşluk Doldurma:</b><br>
+“Edebiyatın en küçük birimine ______ denir.”<br><br>
+<input type="text" id="s4" placeholder="Cevap">
+</div>
+
+<div class="soru">
+<b>4) Çoktan Seçmeli:</b><br>
+Dilimizin zenginliğini artıran nedir?<br><br>
+<input type="radio" name="s5" value="a"> Kelime çeşitliliği<br>
+<input type="radio" name="s5" value="b"> Tek kelime kullanmak<br>
+<input type="radio" name="s5" value="c"> Sessiz olmak<br>
+</div>
+
+<button class="btn" onclick="kontrol()">Testi Bitir</button>
+
+<div id="sonuc"></div>
+
+<script>
+function kontrol(){
+    let puan = 0;
+
+    if (document.getElementById("s1").value.toLowerCase().includes("nutuk")) puan++;
+
+    if (document.getElementById("s2").value.toLowerCase() == "a") puan++;
+    if (document.getElementById("s3").value.toLowerCase() == "b") puan++;
+
+    if (document.getElementById("s4").value.toLowerCase().includes("hece")) puan++;
+
+    let s5 = document.querySelector('input[name="s5"]:checked');
+    if (s5 && s5.value == "a") puan++;
+
+    document.getElementById("sonuc").innerHTML = "Puanın: " + puan + " / 5";
+}
+</script>
+
+</body>
+</html>
